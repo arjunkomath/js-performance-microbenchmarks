@@ -75,3 +75,59 @@ for-each: 659.23ms
 for: 591.67ms
 while: 562.518ms
 ```
+### Reduce vs Counter
+
+```
+Benchmarking for array of size 1000
+reduce: 0.067ms
+counter: 0.171ms
+--------------------------
+Benchmarking for array of size 10000
+reduce: 0.089ms
+counter: 0.131ms
+--------------------------
+Benchmarking for array of size 100000
+reduce: 1.012ms
+counter: 1.815ms
+--------------------------
+Benchmarking for array of size 1000000
+reduce: 0.363ms
+counter: 0.969ms
+--------------------------
+Benchmarking for array of size 10000000
+reduce: 3.277ms
+counter: 9.815ms
+--------------------------
+Benchmarking for array of size 100000000
+reduce: 32.436ms
+counter: 93.603ms
+--------------------------
+```
+
+### Sum of array (vs Rust)
+
+JS
+```
+$ time node dist/sum.js         
+4999999950000000
+node dist/sum.js   20.79s  user 2.82s system 109% cpu 21.536 total
+avg shared (code):         0 KB
+avg unshared (data/stack): 0 KB
+total (sum):               0 KB
+max memory:                7946208 KB
+page faults from disk:     0
+other page faults:         1078900
+```
+
+Rust
+```
+$ time ./target/debug/vs-rust
+sum: 4999999950000000
+./target/debug/vs-rust   1.23s  user 0.08s system 99% cpu 1.315 total
+avg shared (code):         0 KB
+avg unshared (data/stack): 0 KB
+total (sum):               0 KB
+max memory:                782384 KB
+page faults from disk:     1
+other page faults:         49068
+```
