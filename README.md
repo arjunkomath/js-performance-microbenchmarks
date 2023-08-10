@@ -103,6 +103,39 @@ reduce: 32.436ms
 counter: 93.603ms
 --------------------------
 ```
+### IndexOf vs Includes vs Find
+
+```
+Benchmarking for array of size 1000
+indexOf: 0.038ms
+includes: 0.003ms
+find: 0.017ms
+--------------------------
+Benchmarking for array of size 10000
+indexOf: 0.007ms
+includes: 0.007ms
+find: 0.055ms
+--------------------------
+Benchmarking for array of size 100000
+indexOf: 0.009ms
+includes: 0.006ms
+find: 0.048ms
+--------------------------
+Benchmarking for array of size 1000000
+indexOf: 0.452ms
+includes: 0.488ms
+find: 4.325ms
+--------------------------
+Benchmarking for array of size 10000000
+indexOf: 0.866ms
+includes: 0.891ms
+find: 7.967ms
+--------------------------
+Benchmarking for array of size 100000000
+indexOf: 58.173ms
+includes: 57.546ms
+find: 527.223ms
+```
 
 ### Sum of array (vs Rust)
 
